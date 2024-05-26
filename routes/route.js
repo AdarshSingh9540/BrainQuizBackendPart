@@ -8,15 +8,18 @@ const generateMCQQuestions = async (topic) => {
   [
     {
       "Question": "first question",
-      "Options": ["Option1", "Option2", "Option3", "Option4"]
+      "Options": ["Option1", "Option2", "Option3", "Option4"],
+      "answer":"ans"
     },
     {
       "Question": "Second question",
-      "Options": ["Option1", "Option2", "Option3", "Option4"]
+      "Options": ["Option1", "Option2", "Option3", "Option4"],
+      "answer":"ans"
     },
     {
       "Question": "Third question",
-      "Options": ["Option1", "Option2", "Option3", "Option4"]
+      "Options": ["Option1", "Option2", "Option3", "Option4"],
+      "answer":"ans"
     }
   ]
 
