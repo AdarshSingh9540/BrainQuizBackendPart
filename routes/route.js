@@ -3,13 +3,24 @@ const axios = require('axios');
 const router = express.Router();
 
 const generateMCQQuestions = async (topic) => {
-  const prompt = `Generate 5 multiple-choice questions on the topic "${topic}". Each question should have a question and their  4 options ,like first question then option of that question option should come in form of  array .  Format the response as follows:
+  const prompt = `You are given with a topic and you have to generate 15 questions with their multiple choice options. the topic is  "${topic}". You have to follow the response format like this
 
-  Question ?
-  A) Option 1
-  B) Option 2
-  C) Option 3
-  D) Option 4
+  [
+    {
+      "Question": "first question",
+      "Options": ["Option1", "Option2", "Option3", "Option4"]
+    },
+    {
+      "Question": "Second question",
+      "Options": ["Option1", "Option2", "Option3", "Option4"]
+    },
+    {
+      "Question": "Third question",
+      "Options": ["Option1", "Option2", "Option3", "Option4"]
+    }
+  ]
+
+  Dont include anything else in your response except the questions, Response should be as such that i can use it with .map function of javascript.
   `;
 
   const response = await axios.post('https://api.openai.com/v1/chat/completions', {
@@ -40,7 +51,7 @@ router.post('/post/question', async (req, res) => {
 
   try {
     const questions = await generateMCQQuestions(topic);
-    res.json({ questions });
+    res.send( questions );
   } catch (error) {
     res.status(500).send(error.message);
   }
