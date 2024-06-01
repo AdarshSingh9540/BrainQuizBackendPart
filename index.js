@@ -7,12 +7,12 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
-app.use(cors()); // Use cors middleware
+app.use(cors()); 
 
-// Importing routes
+
 const questionRoutes = require('./routes/route');
 
-// Mounting routes
+
 app.use('/api', questionRoutes);
 
 app.listen(port, () => {
