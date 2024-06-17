@@ -1,14 +1,17 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://Adarsh:singh9540@cluster0.yju1yru.mongodb.net/QuizApp');
+const express =  require('express');
 
-const QuestionSchema = mongoose.Schema({
-    id:Number,
-    question:String,
-    isCompleted:String,
-})
+mongoose.connect("mongodb+srv://Adarsh:singh9540@cluster0.yju1yru.mongodb.net/QuizApp");
 
-const Ques = mongoose.model("ques",QuestionSchema);
+const userSchema = new mongoose.Schema({
+    firstName:String,
+    lastName:String,
+    email:String,
+    password:String
+});
 
-module.exports({
-    Ques,
-})
+const User = mongoose.model('User',userSchema)
+
+module.exports ={
+    User
+}
